@@ -30,8 +30,8 @@ AudioConnection          patchCord5(mixer1, 0, i2s1, 0);
 AudioConnection          patchCord6(mixer1, 0, i2s1, 1);
 // GUItool: end automatically generated code
 
-long int prevTimeStamp = 0;
-long int intervalMs = 100; // ms
+long unsigned int prevTimeStamp = 0;
+long unsigned int intervalMs = 100; // ms
 
 void setup() {
 

@@ -23,9 +23,8 @@
 //  Pin 19 --> Potentiometer SEQUENCER OCTAVES RANGE
 //   [all connections to pots central pin]
 //
-//  Pin 1 --> Button 1 FM on/off
+//  Pin 1 --> Button 1 Osc freq modulation on/off
 //  Pin 2 --> Button 2 Cutoff Modulation on/off
-//  Pin 3 --> Button 3 Sequencer on/off
 //  [the other pin of each button --> Ground]
 //
 //  Pin 5 --> resistor --> LED+
@@ -72,16 +71,14 @@ RandomPitchSequencer sequencer;
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // Buttons
-#include <Bounce.h>
+#include <Bounce2.h>
 
-Bounce button1 = Bounce( 1, 5 ); 
+Bounce button1 = Bounce(); 
 bool button1State = 0;
 
-Bounce button2 = Bounce( 2, 5 ); 
+Bounce button2 = Bounce(); 
 bool button2State = 0;
 
-Bounce button3 = Bounce( 3, 5 ); 
-bool button3State = 0;
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // Setup: The stuff in here is executed 
@@ -119,13 +116,12 @@ void setup() {
   lfo2filter.gain(0);
 
   // setup button 1 on pin 1
-  pinMode(1, INPUT_PULLUP);
+  button1.attach(1,INPUT_PULLUP); 
+  button1.interval(25);
 
   // setup button 2 on pin 2
-  pinMode(2, INPUT_PULLUP);
-
-  // setup button 3 on pin 3
-  pinMode(3, INPUT_PULLUP);
+  button2.attach(2, INPUT_PULLUP);
+  button2.interval(25);
 
   // setup LED pin
   pinMode(5,OUTPUT);
@@ -151,11 +147,14 @@ void loop() {
   // this will be modified by the sequencer, if active
   float fratio = 1.0; 
 
-  // if button 3 is on, enable sequencer
-  if (button3State==1){
-    // read sequencer rate from knob at pin 18
-    float seqrate = map( readKnob(18),0.0, 1023.0, 0.0f, 12.f );
-    int noctaves = map( readKnob(19),0.0, 1023.0, 1, 6 );
+  // if button 1 is on, enable sequencer
+  
+  // read sequencer rate from knob at pin 18
+  float seqrate = map( readKnob(18),0.0, 1023.0, 0.1f, 16.f );
+  int noctaves = map( readKnob(19),0.0, 1023.0, 0, 6 );
+  
+  // disables the sequencer if the octave range is at zero 
+  if (noctaves>0){
     fratio = sequencer.GetPitch(seqrate,noctaves);
   }
 
@@ -182,31 +181,21 @@ void loop() {
   // Read button status 
   button1.update();
   
-  if (button1.fallingEdge()){
+  if (button1.fell()){
     button1State = !button1State;
     Serial.print("Switch Button1: ");
     Serial.println(button1State);
     lfo2osc.gain(button1State);
-    
   }
 
   // Read button status 
   button2.update();
   
-  if (button2.fallingEdge()){
+  if (button2.fell()){
     button2State = !button2State;
     Serial.print("Switch Button2: ");
     Serial.println(button2State);
     lfo2filter.gain(button2State);
-  }
-
-   // Read button status 
-  button3.update();
-  
-  if (button3.fallingEdge()){
-    button3State = !button3State;
-    Serial.print("Switch Button3: ");
-    Serial.println(button3State);
   }
   
   delay(5);  

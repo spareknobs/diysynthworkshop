@@ -93,7 +93,7 @@ void updateKnobs(){
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // A Simple LFO  
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-int lfo_timer=0;
+/*int lfo_timer=0;
 float lfo_out=0.0;
 
 float LFO(float rate,float amp,float shape){
@@ -110,34 +110,36 @@ float LFO(float rate,float amp,float shape){
   lfo_timer = ++lfo_timer % lfo_period;
   
   return lfo_out*amp;
-}
+}*/
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // A Simple Random Sequencer - 
 // returns a freq ratio (to be multiplied by base_freq)
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    static const int scaleSize = 6;
-    static const float minorPent[scaleSize] = {1, 6.f/5.f, 4.f/3.f, 3.f/2.f, 9.f/5.f, 2};
+static const int scaleSize = 6;
+static const float minorPent[scaleSize] = {1, 6/5, 4/3, 3/2, 9/5, 2};
 
 class RandomPitchSequencer 
 {
     
 public:
 
-    RandomPitchSequencer(){}
-    ~RandomPitchSequencer(){}
+   RandomPitchSequencer(){}
+  ~RandomPitchSequencer(){}
     
   float GetPitch( float rate, int noctaves, float scale=0 ){
-    int period = (int)roundf(1.0/rate * 1000.0 / loop_ms);
-    if (randseq_timer++ >= period ){
-      noctaves = max(noctaves,1) + 1;
-      int index = random(0,scaleSize); 
-      int mult = random(1,noctaves);
-      fratio = minorPent[index] * mult;   
-      randseq_timer=0;
-      //Serial.println(mult);
-    }
-  
+    
+  int period = (int)roundf(1.0/rate * 1000.0 / loop_ms);
+      if (randseq_timer++ >= period ){
+        noctaves = max(noctaves,1) + 1;
+        int index = random(0,scaleSize); 
+        int mult = random(1,noctaves);
+        fratio = minorPent[index] * mult;   
+        randseq_timer=0;
+        //Serial.println(mult);
+      }
+
+    
     return fratio;
   }
     
@@ -145,27 +147,3 @@ private:
     int randseq_timer{0};
     float fratio{1.f};
 };
-
-
-//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-// A Simple Random Sequencer -
-// returns a freq ratio (to be multiplied by base_freq)
-//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-/*const int scaleSize = 6;
-const float minorPent[scaleSize] = {1, 6.f/5.f, 4.f/3.f, 3.f/2.f, 9.f/5.f, 2};
-int randseq_timer=0;
-float fratio=1.f;
-
-float RandomPitchSequencer( float rate, int noctaves, float scale=0 ){
-    int period = (int)roundf(1.0/rate * 1000.0 / loop_ms);
-    if (randseq_timer++ >= period ){
-        noctaves = max(noctaves,1) + 1;
-        int index = random(0,scaleSize);
-        int mult = random(1,noctaves);
-        fratio = minorPent[index] * mult;
-        randseq_timer=0;
-        Serial.println(mult);
-    }
-    
-    return fratio;
-}*/
