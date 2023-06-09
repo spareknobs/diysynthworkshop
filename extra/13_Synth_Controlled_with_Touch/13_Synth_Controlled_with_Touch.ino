@@ -59,7 +59,7 @@ void loop() {
   updateKnobs();
 
   // read touch pad connected to pin 1
-  touch.add(fastTouchRead(1));
+  touch.add(fastTouchRead(11));
   float touchValue = touch.get();
   Serial.println(touchValue);
   
