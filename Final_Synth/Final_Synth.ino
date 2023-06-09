@@ -146,8 +146,6 @@ void loop() {
   // declare the frequency ratio variable and set it to a default value of 1.0 
   // this will be modified by the sequencer, if active
   float fratio = 1.0; 
-
-  // if button 1 is on, enable sequencer
   
   // read sequencer rate from knob at pin 18
   float seqrate = map( readKnob(18),0.0, 1023.0, 0.1f, 16.f );
