@@ -8,13 +8,11 @@ spare knobs [2023]
 
 -  Install Arduino IDE + Teensy board libraries following these instructions:  https://www.pjrc.com/teensy/td_download.html
 
-- Open Tools → Library Manager
-- Search for Smoothed 
-- Install it
+- Open Tools → Library Manager. Search for _Smoothed _. Install it.
 
-- Connect the Teensy to your Laptop  using the micro usb cable 
+- Connect the Teensy to your Laptop using the micro usb cable. 
 
-- In the Arduino IDE, select the Teensy Board 
+- In the Arduino IDE, select the Teensy Board.
 
 - File → Open → Navigate to the folder Start_Here → select Start_Here.ino
 
