@@ -4,6 +4,9 @@ Repository of the Arduino code for the DIY Synth Workshop - 2023 Edition
 
 spare knobs [2023]
 
+
+# Quick Guide
+
 - Click on CODE –> Download Zip, then Unzip  it in your favourite spot [ If you want, rename it (the folder, and the .ino file inside –  BUT use the same name for both!) ]
 
 -  Install Arduino IDE + Teensy board libraries following these instructions:  https://www.pjrc.com/teensy/td_download.html
