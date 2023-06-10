@@ -19,14 +19,50 @@ spare knobs [2023]
 - Audio System Design Tool: Open browser, got to:  https://www.pjrc.com/teensy/gui/index.html
 
 
-# PINOUT
+# SYNTH PINOUT
 
-Pin 5v  --> 	dac board Vcc
-Pin 20  --> 	dac board LCK
-Pin 21  --> 	dac board BCK
-Pin 7    --> 	dac board DIN
-Ground ← dac board SCK
-Ground ← dac board GND
+
+//  Pin G  --> ground bus
+
+//  Pin 3v --> 3v bus
+
+//  Pin 5v --> dac board Vcc
+
+//  Pin 20 --> dac board LCK
+
+//  Pin 21 --> dac board BCK
+
+//  Pin 7  --> dac board DIN
+
+//  dac board SCK --> Ground bus
+
+//  Pin 14 --> Potentiometer OSC GAIN 
+
+//  Pin 15 --> Potentiometer OSC FREQ
+
+//  Pin 16 --> Potentiometer FILTER CUTOFF
+
+//  Pin 17 --> Potentiometer LFO RATE
+
+//  Pin 18 --> Potentiometer SEQUENCER SPEED
+
+//  Pin 19 --> Potentiometer SEQUENCER OCTAVES RANGE
+
+//   [all connections to pots central pin]
+
+//  Pin 1 --> Button 1 Osc freq modulation on/off
+
+//  Pin 2 --> Button 2 Cutoff Modulation on/off
+
+//  [the other pin of each button --> Ground]
+
+//  Pin 5 --> resistor --> LED+
+
+//  Led- --> Ground
+
+
+
+
 
 
 
