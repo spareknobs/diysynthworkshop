@@ -183,6 +183,8 @@ void loop() {
     button1State = !button1State;
     Serial.print("Switch Button1: ");
     Serial.println(button1State);
+
+    // toggle the frequency modulation switch
     lfo2osc.gain(button1State);
   }
 
@@ -193,6 +195,8 @@ void loop() {
     button2State = !button2State;
     Serial.print("Switch Button2: ");
     Serial.println(button2State);
+
+    // toggle the filter cutoff modulation switch
     lfo2filter.gain(button2State);
   }
   
