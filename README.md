@@ -22,6 +22,11 @@ spare knobs [2023]
 - Audio System Design Tool: Open browser, got to:  https://www.pjrc.com/teensy/gui/index.html
 
 
+# Breadboard
+
+![Model](https://github.com/spareknobs/diysynthworkshop/blob/main/breadboard.png)
+
+
 # SYNTH PINOUT
 
 
