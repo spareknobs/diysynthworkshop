@@ -136,9 +136,7 @@ void loop() {
   // do not remove this
   updateKnobs();
   
-  // LFO RATE
-
-  // read lfo rate from knob at pin 17
+  // read LFO rate from knob at pin 17
   float rate = map( readKnob(17),0.0, 1023.0, 0.0, 1.0 );
   rate = powf(rate,4) * 200.f;
   lfo.frequency(rate);

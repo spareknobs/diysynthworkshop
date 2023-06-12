@@ -16,6 +16,7 @@
 
 #include <Smoothed.h>  
 #include <Wire.h>
+#include <Audio.h>
 
 int loop_ms = 5; 
 int smoothersize = 30;
@@ -117,7 +118,7 @@ float LFO(float rate,float amp,float shape){
 // returns a freq ratio (to be multiplied by base_freq)
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 static const int scaleSize = 6;
-static const float minorPent[scaleSize] = {1, 6/5, 4/3, 3/2, 9/5, 2};
+static const float minorPent[scaleSize] = {1.0, 6.0/5.0, 4.0/3.0, 3.0/2.0, 9.0/5.0, 2.0};
 
 class RandomPitchSequencer 
 {

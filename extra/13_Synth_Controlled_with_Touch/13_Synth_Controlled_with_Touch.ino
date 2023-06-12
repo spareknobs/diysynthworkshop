@@ -63,18 +63,19 @@ void loop() {
   float touchValue = touch.get();
   Serial.println(touchValue);
   
-  // Set Oscillator Frequency
+  // Set Oscillator Frequency with the pot
   //float val = map( readKnob(14),0.0, 1023.0, 0.0, 1.0 );
 
-  //freq controlled by touch
+  //uncomment to control osc frequency with touch
   float val = map( touchValue,12.0, 70.0, 0.0, 1.0 );
+
   float freq = (powf(val,2)*2000.0);
   waveform1.frequency(freq );
   
-  // VCF CUTOFF FREQ Controlled By Proximity
-//  float cutoff = map( touchValue, 0.0, 100.0, 0.0, 8000.0 );
+  // VCF CUTOFF FREQ Controlled By touch
+  float cutoff = map( touchValue, 0.0, 100.0, 0.0, 12000.0 );
 
-  float cutoff = map( readKnob(16), 0.0, 1023.0, 0.0, 8000.0 );
+  //float cutoff = map( readKnob(16), 0.0, 1023.0, 0.0, 8000.0 );
   VCF.frequency( 200.f + cutoff);
 
   // VCA GAIN Controlled by Proximity
