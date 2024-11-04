@@ -1,6 +1,6 @@
 //***************************************************
 // 
-// Teensy Synth DIY Workshop v. Nov 2022
+// Teensy Synth DIY Workshop v. Nov 2024
 //
 // This is a template file which contains some useful
 // "preparatory" code 
@@ -36,6 +36,8 @@
 //  dac board XMT --> 3v bus
 //  dac board GND,FMT,SCL,DMP,FLT --> Ground bus
 //
+//  To run this code you also need to install 
+//  the Smoothed library
 //***************************************************
 
 // useful headers - do not remove
@@ -55,18 +57,15 @@ void setup() {
    // Setup input knobs to control the synth parameters
   setupKnobs();
   
-  // Setup serial communication with your laptop to print debug info
-  Serial.begin(9600);
-
    // Allocate memory for the audio processing - do not remove this line!
   // note: you may need to increase this value later on
   AudioMemory(50);
 
-  // **** Your setup code here ****
+  //**** Your setup code below this line ****
 
 
-  // **** End of setup code  ****
 
+  //******** End of setup code  *************
 }
 
 
@@ -79,12 +78,12 @@ void loop() {
   updateKnobs();
 
 
-  // **** Your loop code here ****
+  //**** Add your loop code below this line ****
   
   
 
   
-  // **** End of your loop code ****
+  //********* End of your loop code ************
 
 
   // a small delay in the loop
