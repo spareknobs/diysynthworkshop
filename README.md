@@ -4,9 +4,6 @@ Repository of the Arduino code for the DIY Synth Workshop - Nov 2024 Edition
 
 spare knobs [2023-24]
 
-![Model](https://github.com/spareknobs/diysynthworkshop/blob/main/diysynthboardpic.jpg)
-
-
 
 # Quick Guide
 
@@ -28,6 +25,8 @@ spare knobs [2023-24]
 # Breadboard
 
 ![Model](https://github.com/spareknobs/diysynthworkshop/blob/main/breadboard.png)
+
+![Model](https://github.com/spareknobs/diysynthworkshop/blob/main/diysynthboardpic.jpg)
 
 
 # SYNTH PINOUT
@@ -73,6 +72,9 @@ spare knobs [2023-24]
 
 
 
+# Audio Design Patch
+
+![Model](https://github.com/spareknobs/diysynthworkshop/blob/main/Simple%20Synth%20Diagram.png)
 
 
 
