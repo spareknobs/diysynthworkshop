@@ -4,6 +4,9 @@ Repository of the Arduino code for the DIY Synth Workshop - Nov 2024 Edition
 
 spare knobs [2023-24]
 
+![Model](https://github.com/spareknobs/diysynthworkshop/blob/main/diysynthboardpic.jpg)
+
+
 
 # Quick Guide
 
