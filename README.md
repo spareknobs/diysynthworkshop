@@ -1,8 +1,8 @@
 # DIY Synth Workshop
 
-Repository of the Arduino code for the DIY Synth Workshop - 2023 Edition
+Repository of the Arduino code for the DIY Synth Workshop - Nov 2024 Edition
 
-spare knobs [2023]
+spare knobs [2023-24]
 
 
 # Quick Guide
